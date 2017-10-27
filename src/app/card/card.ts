@@ -4,5 +4,6 @@ export interface Card {
     synonym: string,
     antonym: string,
     general_sense: string,
-    example_usage: string
+    example_usage: string,
+    likes: number;
 }

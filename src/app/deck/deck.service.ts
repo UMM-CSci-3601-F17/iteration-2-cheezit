@@ -34,13 +34,14 @@ export class DeckService {
     }
 
     public addNewCard(deckID: string, word: string, synonym: string, antonym: string, general: string, example: string) {
-        const body : Card = {
+        const body: Card = {
             word: word,
             synonym: synonym,
             antonym: antonym,
             general_sense: general,
-            example_usage: example
-        }
+            example_usage: example,
+            likes: 0
+        };
         console.log(body);
 
         return this.db.doc('decks/' + deckID).collection('cards').add(body);

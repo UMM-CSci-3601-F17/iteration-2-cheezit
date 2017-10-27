@@ -9,6 +9,7 @@ import {Component} from "@angular/core";
 import {Card} from "../card/card";
 import {browser} from "protractor";
 
+
 describe('CardComponent', () => {
   let component: CardComponent;
   let fixture: ComponentFixture<TestComponentWrapper>;
@@ -41,7 +42,6 @@ describe('CardComponent', () => {
         expect(component.card.general_sense).toContain("test general_sense");
         expect(component.card.example_usage).toContain("test example_usage");
 
-
     });
 
      it('synonym should be highlighted', () => {
@@ -63,6 +63,28 @@ describe('CardComponent', () => {
         let synonym: HTMLElement = debugElement.query(By.css('.card-example-usage')).nativeElement;
         expect(synonym.classList).not.toContain("hint-selected");
     });
+
+    it('should check whether the button has been called', async(() => {
+        spyOn(component, 'hitLike');
+
+        let button = fixture.debugElement.nativeElement.querySelector('button');
+        button.click();
+
+        fixture.whenStable().then(() => {
+            expect(component.hitLike).toHaveBeenCalled();
+        })
+    }));
+    it('should increment the like by 1', async(() => {
+        spyOn(component, 'hitLike');
+
+        let button = fixture.debugElement.nativeElement.querySelector('button');
+        button.click();
+
+        fixture.whenStable().then(() => {
+            expect(this.likes = 1);
+        })
+    }));
+
 });
 
 @Component({
@@ -76,6 +98,7 @@ class TestComponentWrapper {
         antonym: "test antonym",
         general_sense: "test general_sense",
         example_usage: "test example_usage",
+        likes: 0
     };
 
 
