@@ -51,7 +51,8 @@ export class NewCardDialogComponent implements OnInit {
             this.newCardSynonym,
             this.newCardAntonym,
             this.newCardGeneral,
-            this.newCardExample).then(
+            this.newCardExample,
+            ).then(
             succeeded => {
                 //this.cardAddSuccess = true;
                 this.matDialogRef.close(succeeded);
