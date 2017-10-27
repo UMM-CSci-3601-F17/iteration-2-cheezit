@@ -20,7 +20,7 @@ export class CardComponent implements OnInit {
   ngOnInit() {
   }
 
-  hitUpvote(): number {
+  hitLike(): number {
       this.card.likes += 1;
       this.DisableButton = true;
       console.log(this.card.likes);

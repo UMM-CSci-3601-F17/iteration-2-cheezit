@@ -10,7 +10,7 @@
         <div class="card-example-usage card-line" [ngClass]="{'hint-selected': this.selected.indexOf(4) != -1}"><div class="card-desc">Example usage:</div> <div class="card-cont">{{ card.example_usage }}</div></div>
     </mat-card-content>
     <mat-card-actions align="end">
-        <button mat-icon-button color="primary" [disabled]="DisableButton" class="card-vote"(click)= "hitUpvote()">
+        <button mat-icon-button color="primary" [disabled]="DisableButton" class="card-vote"(click)= "hitLike()">
             <mat-icon>thumb_up</mat-icon>
         </button>
     </mat-card-actions>
